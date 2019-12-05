@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class AnimalController extends AbstractController
 {
     /**
-     * @Route("/animal", name="animal")
+     * @Route("/", name="animaux")
      */
     public function index()
     {
