@@ -17,5 +17,34 @@
 		<p>
 			{{ famille.description }}
 		</p>
+		<div class="row">
+			{% for animal in famille.animaux %}
+				<div class="col-6">
+					<div class="row align-items-center">
+						<div class="col-2 text-center">
+							<img style="width:100%;" src="{{ asset('images/' ~ animal.image) }}" alt="">
+						</div>
+						<div class="col-auto">
+							<h2>
+								<a href="{{ path('afficher_animal', { 'id' : animal.id }) }}">
+									{{ animal.nom }}
+								</a>
+							</h2>
+							<p>
+								{{ animal.description }}
+							</p>
+							<p>
+								Famille :
+								<a href="" class="btn btn-primary">
+									{{ animal.famille.libelle }}
+								</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+
+		</div>
+
 	{% endfor %}
 {% endblock %}
