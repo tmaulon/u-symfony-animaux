@@ -12,7 +12,7 @@
 	{% for animal in animaux %}
 		<div class="row align-items-center">
 			<div class="col-2 text-center">
-				<img style="width:100%;" src="{{ asset('images/' ~ animal.image) }}" alt="">
+				<img class="img-fluid" src="{{ asset('images/' ~ animal.image) }}" alt="">
 			</div>
 			<div class="col-auto">
 				<h2>
@@ -25,7 +25,7 @@
 				</p>
 				<p>
 					Famille :
-					<a href="" class="btn btn-primary">
+					<a href="{{ path('afficher_famille', { 'id' : animal.famille.id }) }}" class="btn btn-primary">
 						{{ animal.famille.libelle }}
 					</a>
 				</p>

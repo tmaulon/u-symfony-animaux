@@ -31,6 +31,12 @@
 					<span class="badge badge-success">Oui</span>
 				{% endif %}
 			</p>
+			<p>
+				Famille :
+				<a href="{{ path('afficher_famille', { 'id' : animal.famille.id }) }}" class="btn btn-primary">
+					{{ animal.famille.libelle }}
+				</a>
+			</p>
 		</div>
 	</div>
 {% endblock %}

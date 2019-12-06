@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Page de la famille d'animaux
+	{{ famille.libelle }}
+{% endblock %}
+
+{% block monTitre %}
+	Page de la famille d'animaux
+	{{ famille.libelle }}
+{% endblock %}
+
+{% block body %}
+	<div class="row">
+		<div class="col-12 text-center">
+			<p>
+				{{ famille.description }}
+			</p>
+		</div>
+	</div>
+	<div class="row">
+		{% for animal in famille.animaux %}
+			<div class="col-6">
+				<div class="row align-items-center">
+					<div class="col-12 col-md-6 col-lg-2 text-center">
+						<img class="img-fluid" src="{{ asset('images/' ~ animal.image) }}" alt="">
+					</div>
+					<div class="col text-center">
+						<h2>
+							<a href="{{ path('afficher_animal', { 'id' : animal.id }) }}">
+								{{ animal.nom }}
+							</a>
+						</h2>
+						<p>
+							{{ animal.description }}
+						</p>
+						<p>
+							Famille :
+							<a href="" class="btn btn-primary">
+								{{ animal.famille.libelle }}
+							</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+
+	</div>
+
+{% endblock %}
