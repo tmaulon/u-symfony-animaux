@@ -1,25 +1,34 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-	Page de la famille d'animaux
-	{{ famille.libelle }}
+	Page du continent
+	{{ continent.libelle }}
 {% endblock %}
 
 {% block monTitre %}
-	Page de la famille d'animaux
-	{{ famille.libelle }}
+	Page du continent
+	{{ continent.libelle }}
 {% endblock %}
 
 {% block body %}
 	<div class="row">
 		<div class="col-12 text-center">
-			<p>
-				{{ famille.description }}
-			</p>
+			{% if continent.animaux|length > 1 %}
+				<p>
+					Voici les animaux vivant sur le continent
+					{{ continent.libelle }}
+				</p>
+			{% else %}
+				<p>
+					Voici l'animal vivant sur le continent
+					{{ continent.libelle }}
+				</p>
+			{% endif %}
 		</div>
 	</div>
+
 	<div class="row">
-		{% for animal in famille.animaux %}
+		{% for animal in continent.animaux %}
 			<div class="col-6">
 				<div class="row align-items-center">
 					<div class="col-12 col-md-6 col-lg-2 text-center">
@@ -34,9 +43,15 @@
 						<p>
 							{{ animal.description }}
 						</p>
+						<p>
+							Famille :
+							<a href="{{ path('afficher_famille', { 'id' : animal.famille.id }) }}" class="btn btn-primary">
+								{{ animal.famille.libelle }}
+							</a>
+						</p>
 						<div>
 							<p>
-								Présence de l'animal dans les continents suivants :
+								Cet animal vit aussi sur les continents suivants :
 							</p>
 							<ul class="list-group list-group-horizontal">
 								{% for continent in animal.continents %}
