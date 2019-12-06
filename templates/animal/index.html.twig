@@ -43,6 +43,20 @@
 						{% endfor %}
 					</ul>
 				</div>
+				<div>
+					<p>
+						Personnes disposant de l'animal :
+					</p>
+					<ul class="list-group list-group-horizontal">
+						{% for dispose in animal.disposes %}
+							<li class="list-group-item">
+								<a href="{{ path('afficher_personne', { 'id' : dispose.personne.id }) }}">
+									{{ dispose.personne.nom|capitalize }}
+								</a>
+							</li>
+						{% endfor %}
+					</ul>
+				</div>
 			</div>
 		</div>
 	{% endfor %}
