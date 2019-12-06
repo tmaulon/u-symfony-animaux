@@ -18,11 +18,16 @@
 				<h2>
 					<a href="{{ path('afficher_animal', { 'id' : animal.id }) }}">
 						{{ animal.nom }}
-
 					</a>
 				</h2>
 				<p>
 					{{ animal.description }}
+				</p>
+				<p>
+					Famille :
+					<a href="" class="btn btn-primary">
+						{{ animal.famille.libelle }}
+					</a>
 				</p>
 			</div>
 		</div>
