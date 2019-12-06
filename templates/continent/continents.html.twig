@@ -43,12 +43,14 @@
 									Cet animal vit aussi sur les continents suivants :
 								</p>
 								<ul class="list-group list-group-horizontal">
-									{% for continent in animal.continents %}
-										<li class="list-group-item list-group-item-info">
-											<a href="{{ path('afficher_continent', { 'id' : continent.id }) }}">
-												{{ continent.libelle|capitalize }}
-											</a>
-										</li>
+									{% for continentAnimal in animal.continents %}
+										{% if continentAnimal.id != continent.id %}
+											<li class="list-group-item list-group-item-info">
+												<a href="{{ path('afficher_continent', { 'id' : continentAnimal.id }) }}">
+													{{ continentAnimal.libelle|capitalize }}
+												</a>
+											</li>
+										{% endif %}
 									{% endfor %}
 								</ul>
 							</div>
