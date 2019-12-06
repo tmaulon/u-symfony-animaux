@@ -16,7 +16,10 @@
 			</div>
 			<div class="col-auto">
 				<h2>
-					{{ animal.nom }}
+					<a href="{{ path('afficher_animal', { 'id' : animal.id }) }}">
+						{{ animal.nom }}
+
+					</a>
 				</h2>
 				<p>
 					{{ animal.description }}
