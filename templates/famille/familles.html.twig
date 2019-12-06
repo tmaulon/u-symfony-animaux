@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Page des familles d'animaux
+{% endblock %}
+
+{% block monTitre %}
+	Voici la liste des familles d'animaux
+{% endblock %}
+
+{% block body %}
+
+	{% for famille in familles %}
+		<h2 class="border-bottom border-primary">
+			{{ famille.libelle|capitalize }}
+		</h2>
+		<p>
+			{{ famille.description }}
+		</p>
+	{% endfor %}
+{% endblock %}

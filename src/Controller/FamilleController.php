@@ -2,18 +2,21 @@
 
 namespace App\Controller;
 
+use App\Repository\FamilleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
 class FamilleController extends AbstractController
 {
     /**
-     * @Route("/famille", name="famille")
+     * @Route("/familles", name="familles")
      */
-    public function index()
+    public function index(FamilleRepository $repository)
     {
-        return $this->render('famille/index.html.twig', [
+        $familles = $repository->findAll();
+        return $this->render('famille/familles.html.twig', [
             'controller_name' => 'FamilleController',
+            'familles' => $familles
         ]);
     }
 }
